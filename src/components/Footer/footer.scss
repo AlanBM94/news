@@ -1,0 +1,51 @@
+@import './../../sass/variables.scss';
+@import './../../sass/mixins.scss';
+
+.footer {
+    width: 100%;
+    background: $black;
+    display: grid;
+    @include defaultGrid;
+    grid-column: 1 / -1;
+    padding: 3rem 0;
+    &__text {
+        grid-column: 2 / 6;
+        display: flex;
+
+        & p {
+            font-size: 13px;
+            font-family: 'Oswald', sans-serif;
+            color: $gray;
+        }
+        & svg {
+            fill: $gray;
+            margin-left: 2px;
+            margin-right: 3px;
+            margin-bottom: -3px;
+        }
+    }
+    &__links {
+        grid-column: 10 / 12;
+        & ul {
+            margin-left: auto;
+            display: flex;
+            list-style: none;
+            width: 100%;
+            justify-content: space-around;
+            & li a i {
+                color: $gray;
+                font-size: 15px;
+            }
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        display: flex;
+        flex-direction: column;
+        height: 12rem;
+        &__text {
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+    }
+}

@@ -1,0 +1,119 @@
+@import './../../sass/variables.scss';
+@import './../../sass/mixins.scss';
+
+.navbar {
+    width: 100%;
+    height: 8rem;
+    background: $black;
+    grid-column: 1 / -1;
+    @include defaultGrid;
+    position: fixed;
+    z-index: 100;
+
+    &__title {
+        grid-column: 2 / 4;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        & a {
+            text-decoration: none;
+        }
+        & span {
+            font-size: 2rem;
+            color: white;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 500;
+        }
+    }
+    &__categories {
+        grid-column: 9 / 10;
+        height: 100%;
+        display: flex;
+        position: relative;
+        @media screen and (max-width: 1024px) {
+            grid-column: 8 / 9;
+        }
+        @media screen and (max-width: 768px) {
+            display: none;
+        }
+        & span {
+            display: block;
+            font-size: 1.6rem;
+            width: 100%;
+            height: 100%;
+            color: white;
+            font-family: 'Oswald', sans-serif;
+            align-self: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            &:hover {
+                cursor: pointer;
+            }
+            &:hover + ul {
+                visibility: visible;
+                opacity: 1;
+            }
+            & svg {
+                fill: white;
+                margin-left: 5px;
+                margin-top: 2px;
+            }
+        }
+        & ul {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            top: 100%;
+            left: 0%;
+            height: 25rem;
+            width: 25rem;
+            background: $gray;
+            list-style: none;
+            display: flex;
+            padding: 1rem 2rem;
+            flex-direction: column;
+            justify-content: space-around;
+            transition: 0.3s ease all;
+            & li {
+                width: 100%;
+            }
+            & li a {
+                font-family: 'Oswald', sans-serif;
+                font-size: 1.4rem;
+                display: block;
+                text-decoration: none;
+                width: 100%;
+                background: transparent;
+                border: none;
+                color: $black;
+                transition: 0.3s ease all;
+                padding: 10px;
+                text-align: left;
+                &:hover {
+                    background: $dark-gray;
+                    cursor: pointer;
+                }
+            }
+            &:hover {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+    }
+    &__search {
+        grid-column: 10/ 12;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        @media screen and (max-width: 768px) {
+            display: none;
+        }
+    }
+}
+
+.disabled-link {
+    pointer-events: none;
+}

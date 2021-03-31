@@ -1,0 +1,44 @@
+@import './variables.scss';
+@import './mixins.scss';
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    // This defines what 1rem is
+    font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
+    font-family: 'Roboto Slab', serif;
+}
+
+body {
+    box-sizing: border-box;
+}
+
+.container {
+    @include defaultGrid;
+    min-height: 100vh;
+    &__content {
+        width: 100%;
+        min-height: calc(100vh - 8rem);
+        padding: 8rem 0;
+        grid-column: 1 / -1;
+        @include defaultGrid;
+        grid-template-rows: 10rem 1fr;
+    }
+    &__news {
+        grid-column: 2 / 12;
+        display: grid;
+        gap: 4rem;
+        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    }
+    // @media screen and (max-width: 480px) {
+    //     &__content {
+    //         min-height: 70rem;
+    //     }
+    // }
+}
